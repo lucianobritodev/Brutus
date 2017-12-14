@@ -5,8 +5,8 @@ Brutus é um Script de Pós Instalação de Distros Baseadas no Ubuntu.
 
 Suas Funções Principais São:
 
-=> Baixar, Instalar e Atualizar os Pacotes Básicos;
-=> Baixar, Instalar e Atualizar os Pacotes Avançados;
+* Baixar, Instalar e Atualizar os Pacotes Básicos;
+* Baixar, Instalar e Atualizar os Pacotes Avançados;
 => Baixar, Instalar e Atualizar os Pacotes Development;
 => Atualizar Pacotes;
 => Atualozar o Sistema;
