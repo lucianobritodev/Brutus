@@ -9,56 +9,12 @@
             #                                                      #
             ########################################################
 
-############################  Declaração de Variáveis  #########################
-
-#Pacotes Básicos
-var1="Tema Papirus"
-var2="Tema Arc"
-var3="LibreOffice"
-var4="Fontes da Microsoft"
-var5="Brasero"
-var6="VLC"
-var7="Parole"
-var8="ClipGrab"
-var9="Gimp"
-var10="Inkscape"
-var11="Kdenlive"
-var12="OBS-Studio"
-var13="Kazam"
-var14="GParted"
-var15="Gnome-Disks"
-var16="Monitor do Sistema"
-var17="Converseen"
-var18="Transmission"
-var19="Audacity"
-var20="Spotify"
-var21="Curlew"
-var22="Firefox"
-
-#Pacotes Avançados
-var30="DropBox"
-var31="Multisystem"
-var32="VirtualBox"
-var33="Steam"
-var34="PlayOnLinux"
-var35="Blender"
-var36="Grub-Customizer"
-var37="Synaptic"
-var38="Stoq"
-var39="BibleTime"
-var40="Xiphos"
 
 #Respostas s/n
 Sim="S"
 sim="s"
-
-#Gerenciador de Arquivos
-g1="1"
-g2="2"
-g3="3"
-g4="4"
-g5="5"
-g6="6"
+Nao="N"
+nao="n"
 
 
 #Início: Instalação do GKSU
@@ -97,19 +53,31 @@ GKSU(){
 	fi
 } #Fim: Instalação do GKSU
 
-GKSU
 
+#Início: Instalação do XTERM
+function XTERM(){
+    if ! [ -x /usr/bin/xterm ]
+  	then
+    	clear
+        echo "Instalando XTerm"
+        echo "****************"
+        echo
+    	echo "$senha1" | sudo -S apt-get install xterm -y
+  	fi
+} #Fim: Instalação do XTERM
+
+GKSU
 
 #Início: Informações Iniciais
 INFO(){
 	echo "          ************************************************************************"
 	echo "          *                                                                      *"
-	echo -e '          *                       \e[1mScript de Pós Formatação\e[m                       *'
+	echo -e '          *                       \e[1mBem-Vindo ao Brutus     \e[m                       *'
 	echo "          *                                                                      *"
 	echo "          ************************************************************************"
 	echo
 	echo
-	echo "Este é um Script de Pós Instalação de Distros Baseadas no 'Ubuntu'."
+	echo "Brutus é um Script de Pós Instalação de Distros Baseadas no 'Ubuntu'."
 	echo "Ele tem a função de Baixar, Instalar e Atualizar os Seguintes Pacotes:"
 	echo
 	echo
@@ -170,29 +138,29 @@ function mostramenu(){
    echo -e '         |                                                                     |'
    echo -e '         |                                  \e[1mdo\e[m                                 |'
    echo -e '         |                                                                     |'   
-   echo -e '         |                       \e[1mScript de Pós Formatação\e[m                      |'
+   echo -e '         |                                \e[1mBRUTUS\e[m                               |'
    echo -e '         |                                                                     |'
    echo -e '         +=====================================================================+'   
    echo
    echo
    echo "Pressione um número, em seguida, pressione ENTER para executar uma ação."
    echo
+   echo -e '\e[31;1m   Opção:              Função:                         Descrição:\e[m'
    echo
-   echo -e '\e[31;1m  Opção:              Função:                Descrição:\e[m'
-   echo -e '\e[31;1m  [' 1 '] \e[m Instalar Pacotes Básicos. -------- (Instala os Pacotes Básicos Com ou Sem PPAs)'
-   echo -e '\e[31;1m  [' 2 '] \e[m Instalar Pacotes Avançados. ------ (Instala Outros Pacotes)'
-   echo -e '\e[31;1m  [' 3 '] \e[m Instalar Pacotes Development. ---- (Instala Pacotes Para Desenvolvedores)'   
-   echo -e '\e[31;1m  [' 4 '] \e[m Atualizar Pacotes. --------------- (Atualiza Todos os Pacotes Instalados)'
-   echo -e '\e[31;1m  [' 5 '] \e[m Atualizar o Sistema. ------------- (Atualiza Todos os Pacotes e o Sistema)'
-   echo -e '\e[31;1m  [' 6 '] \e[m Checklist dos Pacotes. ----------- (Verifica e Lista se Pacotes foram Instalados)'
-   echo -e '\e[31;1m  [' 7 '] \e[m Limpar o Sistema. ---------------- (Limpa Todos os Arquivos Desnecessários)'
-   echo -e '\e[31;1m  [' 8 '] \e[m Atualizar Alterações de Boot. ---- (Atualiza a Ordem de Boot do Grub)'
-   echo -e '\e[31;1m  [' 9 '] \e[m Corrigir Pacotes Ociosos. -------- (Corrige Pacotes Quebrados e Dependências)'
+   echo -e '\e[31;1m  [  1  ] \e[m Instalar Pacotes Básicos. -------- (Instala os Pacotes Básicos Com ou Sem PPAs)'
+   echo -e '\e[31;1m  [  2  ] \e[m Instalar Pacotes Avançados. ------ (Instala Outros Pacotes)'
+   echo -e '\e[31;1m  [  3  ] \e[m Instalar Pacotes Development. ---- (Instala Pacotes Para Desenvolvedores)'   
+   echo -e '\e[31;1m  [  4  ] \e[m Atualizar Pacotes. --------------- (Atualiza Todos os Pacotes Instalados)'
+   echo -e '\e[31;1m  [  5  ] \e[m Atualizar o Sistema. ------------- (Atualiza Todos os Pacotes e o Sistema)'
+   echo -e '\e[31;1m  [  6  ] \e[m Checklist dos Pacotes. ----------- (Verifica e Lista se Pacotes foram Instalados)'
+   echo -e '\e[31;1m  [  7  ] \e[m Limpar o Sistema. ---------------- (Limpa Todos os Arquivos Desnecessários)'
+   echo -e '\e[31;1m  [  8  ] \e[m Atualizar Alterações de Boot. ---- (Atualiza a Ordem de Boot do Grub)'
+   echo -e '\e[31;1m  [  9  ] \e[m Corrigir Pacotes Ociosos. -------- (Corrige Pacotes Quebrados e Dependências)'
+   echo -e '\e[31;1m  [ 10  ] \e[m Desinstalar Pacotes. ------------- (Desinstala Pacotes a Partir do Nome)'
    echo
-   echo -e '\e[31;1m  [' H '] \e[m Informações do Script. ----------- (Lista Informações do Script)'
-   echo -e '\e[31;1m  [' I '] \e[m Informações do Sistema. ---------- (Lista Informações do Sistema)'
-   echo -e '\e[31;1m  [' S '] \e[m Sair. ---------------------------- (Sai do Script)'
-   echo
+   echo -e '\e[31;1m  [  H  ] \e[m Informações do Script. ----------- (Lista Informações do Script)'
+   echo -e '\e[31;1m  [  I  ] \e[m Informações do Sistema. ---------- (Lista Informações do Sistema)'
+   echo -e '\e[31;1m  [  S  ] \e[m Sair. ---------------------------- (Sai do Script)'
    echo
    if [ "$1" ]; then echo -n "Escolha uma opção: " ; fi
 } #Fim: Menu Principal
@@ -218,6 +186,7 @@ function _menu(){
         7) LimparSistema ;;
         8) AtualizarGrub ;;
         9) CorrigirDependencias ;;
+		10) Desinstalar ;;
         H) InformacoesScript ;;
         I) InformacoesSistema ;;
         S) Sair ;;
@@ -304,7 +273,7 @@ function InformacoesSistema(){
   echo
   echo
   echo "Pressione ENTER para retornar ao Menu Principal ..."
-  read _ENTER
+  read
 } #Fim: Informações do Sistema
 
 
@@ -342,11 +311,11 @@ function InstalarPacotesBasicos(){
 	if [ "$resp" == "$Sim" ]
 	then
 		clear
-		echo "*****************************************************************"
-		echo "*                                                               *"
-		echo -e '*\e[1m                  Instalação de Pacotes Básicos                \e[m*'
-		echo "*                                                               *"
-		echo "*****************************************************************"
+		echo "             *****************************************************************"
+		echo "             *                                                               *"
+		echo -e '             *\e[1m                  Instalação de Pacotes Básicos                \e[m*'
+		echo "             *                                                               *"
+		echo "             *****************************************************************"
 		echo
 		echo
 		echo "Você Deseja Adicionar PPA's para Manter as Atualizações dos Pacotes?"
@@ -522,7 +491,8 @@ function InstalarPacotesBasicos(){
 		echo "****************************************"
 		sleep 1
 		echo ""
-		echo "$senha1" | sudo -S apt-get install msttcorefonts -y --force-yes
+		echo "$senha1" | sudo -S bash -c 'echo "$senha1" | sudo -S apt-get install msttcorefonts -y --force-yes'
+		#echo "$senha1" | sudo -S apt-get install msttcorefonts -y --force-yes
 		echo ""
 		echo ""
 
@@ -717,7 +687,7 @@ function InstalarPacotesBasicos(){
 	echo
 	echo
 	echo "Pressione ENTER para retornar ao Menu Principal ..."
-	read _ENTER
+	read
 } #Fim: Instalador de Pacotes Básicos
 
 
@@ -732,23 +702,24 @@ function PacotesAvancados(){
   echo 
   echo "Esta Sessão Permite Realizar as Instalações dos Seguintes Pacotes:"
   echo
-  echo -e '\e[31;1m [' 1 '] \e[m Navegadores. ------------ (Firefox, Google Chrome, Opera e Chromium)'
-  echo -e '\e[31;1m [' 2 '] \e[m Dropbox. ---------------- (Serviço de Armazenamento de Arquivos em Nuvem)'
-  echo -e '\e[31;1m [' 3 '] \e[m Multisystem. ------------ (Criador de Pen-Drives Multiboot)'
-  echo -e '\e[31;1m [' 4 '] \e[m MultiBootUSB. ----------- (Criador de Pen-Drives Multiboot)'
-  echo -e '\e[31;1m [' 5 '] \e[m VirtualBox. ------------- (Serviço de Virtualização de Maquinas Reais)' 
-  echo -e '\e[31;1m [' 6 '] \e[m Steam. ------------------ (Cliente para Jogos)'
-  echo -e '\e[31;1m [' 7 '] \e[m PlayOnLinux. ------------ (Camada de Compatibilidade com Aplicações Windows)'
-  echo -e '\e[31;1m [' 8 '] \e[m Wine. ------------------- (Camada de Compatibilidade com Aplicações Windows)'
-  echo -e '\e[31;1m [' 9 '] \e[m Blender. ---------------- (Editor de Criador de Vídeos e Conteúdos 3D)'
-  echo -e '\e[31;1m [' 10 ']\e[m Grub Customizer. -------- (Customizador do Bootloader Grub2)'
-  echo -e '\e[31;1m [' 11 ']\e[m Synaptic. --------------- (Interface Gráfica para APT e DPKG)'
-  echo -e '\e[31;1m [' 12 ']\e[m Stoq. ------------------- (Serviço de Gestão Empresarial)'
-  echo -e '\e[31;1m [' 13 ']\e[m BibleTime & Xiphos. ----- (Bíblias de Estudos para Cristãos)'
-  echo -e '\e[31;1m [' 14 ']\e[m Dicionário GoldenDict --- (Gestor de Multiplos Dicionários)'
+  echo -e '\e[31;1m [  1  ] \e[m Navegadores. ------------ (Firefox, Google Chrome, Opera e Chromium)'
+  echo -e '\e[31;1m [  2  ] \e[m Dropbox. ---------------- (Serviço de Armazenamento de Arquivos em Nuvem)'
+  echo -e '\e[31;1m [  3  ] \e[m Multisystem. ------------ (Criador de Pen-Drives Multiboot)'
+  echo -e '\e[31;1m [  4  ] \e[m MultiBootUSB. ----------- (Criador de Pen-Drives Multiboot)'
+  echo -e '\e[31;1m [  5  ] \e[m VirtualBox. ------------- (Serviço de Virtualização de Maquinas Reais)' 
+  echo -e '\e[31;1m [  6  ] \e[m Steam. ------------------ (Cliente para Jogos)'
+  echo -e '\e[31;1m [  7  ] \e[m PlayOnLinux. ------------ (Camada de Compatibilidade com Aplicações Windows)'
+  echo -e '\e[31;1m [  8  ] \e[m Wine. ------------------- (Camada de Compatibilidade com Aplicações Windows)'
+  echo -e '\e[31;1m [  9  ] \e[m Blender. ---------------- (Editor de Criador de Vídeos e Conteúdos 3D)'
+  echo -e '\e[31;1m [ 10  ] \e[m Grub Customizer. -------- (Customizador do Bootloader Grub2)'
+  echo -e '\e[31;1m [ 11  ] \e[m Synaptic. --------------- (Interface Gráfica para APT e DPKG)'
+  echo -e '\e[31;1m [ 12  ] \e[m Stoq. ------------------- (Serviço de Gestão Empresarial)'
+  echo -e '\e[31;1m [ 13  ] \e[m BibleTime & Xiphos. ----- (Bíblias de Estudos para Cristãos)'
+  echo -e '\e[31;1m [ 14  ] \e[m Dicionário GoldenDict --- (Gestor de Multiplos Dicionários)'
+  echo -e '\e[31;1m [ 15  ] \e[m WhastApp Desktop -------- (Aplicativo não Oficial do WhastApp para Desktop)'
   echo
-  echo -e '\e[31;1m [' V '] \e[m ... Voltar ao Menu Principal'
-  echo -e '\e[31;1m [' S '] \e[m ... Sair do Script'
+  echo -e '\e[31;1m [  V  ] \e[m ... Voltar ao Menu Principal'
+  echo -e '\e[31;1m [  S  ] \e[m ... Sair do Script'
   echo
   echo
   echo -n "Escolha Uma Opção: "
@@ -780,6 +751,7 @@ function InstalarPacotesAvancados(){
         12) Stoq ;;
         13) Biblias ;;
         14) Dicionario ;;
+		15) WhastApp ;;
         V) Voltar ;;
         S) Sair ;;
         *) Invalida ;;
@@ -855,7 +827,7 @@ Firefox(){
         fi
     else
         echo
-        echo "O Firefox Já Está Instalado!"
+        echo "==> O Firefox Já Está Instalado!"
     fi
     echo
     echo
@@ -888,7 +860,7 @@ function Chrome(){
         fi
     else
         echo
-        echo "O Google Chrome Já Está Instalado!"
+        echo "==> O Google Chrome Já Está Instalado!"
     fi
     echo
     echo
@@ -920,7 +892,7 @@ function Opera(){
         fi
     else
         echo
-        echo "O Opera Já Está Instalado!"
+        echo "==> O Opera Já Está Instalado!"
     fi
     echo
     echo
@@ -943,13 +915,13 @@ function Chromium(){
         echo
         if [ -x /usr/bin/chromium-browser ]
         then
-          echo "==> $var30 Está Instalado!"
+          echo "==> Chromium Está Instalado!"
         else
-          echo "xxx> O $var30 Não Foi Instalado!"
+          echo "xxx> O Chromium Não Foi Instalado!"
         fi
     else
         echo
-        echo "O Chromium Já Está Instalado!"
+        echo "==> O Chromium Já Está Instalado!"
     fi
     echo
     echo
@@ -961,187 +933,219 @@ function Chromium(){
 
 #Início: Instalação do DropBox
 function Dropbox(){
-  clear
-  echo "Instalação do DropBox"
-  echo "*********************"
-  echo
-  echo
-  echo "Você Deseja Instalar o Dropbox?"
-  echo -n "[Digite s/n]: " ; read resp3
-  resp3=`printf $resp3 | tr [a-z] [A-Z]`
+	until (())
+	do
+	  	clear
+	  	echo "Instalação do DropBox"
+	  	echo "*********************"
+	  	echo
+	  	echo
+      	if ! [ -x '/usr/bin/dropbox' ]
+      	then
+          	echo
+          	echo "Qual é o Gerenciador de Arquivos Padrão do Seu Sistema?"
+          	echo
+          	echo -e '\e[31;1m [' 1 '] \e[m Nautilus. ---------- (Padrão do Gnome e Unity)'
+          	echo -e '\e[31;1m [' 2 '] \e[m Nemo. -------------- (Padrão do Cinnamon)'
+          	echo -e '\e[31;1m [' 3 '] \e[m Thunar. ------------ (Padrão do XFCE)'
+          	echo -e '\e[31;1m [' 4 '] \e[m Caja. -------------- (Padrão do Mate)'
+         	echo -e '\e[31;1m [' 5 '] \e[m Dolphin. ----------- (Padrão do KDE Plasma)'
+          	echo -e '\e[31;1m [' 6 '] \e[m DDE-File-Manager. -- (Padrão do Deepin)'
+          	echo
+          	echo -e '\e[31;1m [' V '] \e[m ... Voltar ao Menu de Pacotes Avançados'
+          	echo -e '\e[31;1m [' S '] \e[m ... Sair do Script'
+          	echo
+          	echo -n "Digite um número e precione ENTER: "
+          	read resp4
+          	resp4=`printf $resp4 | tr [a-z] [A-Z]`
 
-  if [ "$resp3" = "$Sim" ]
-  then
-      if ! [ -x '/usr/bin/dropbox' ]
-      then
-          echo
-          echo "Qual é o Gerenciador de Arquivos Padrão do Seu Sistema?"
-          echo
-          echo -e '\e[31;1m [' 1 '] \e[m Nautilus. ---------- (Padrão do Gnome e Unity)'
-          echo -e '\e[31;1m [' 2 '] \e[m Nemo. -------------- (Padrão do Cinnamon)'
-          echo -e '\e[31;1m [' 3 '] \e[m Thunar. ------------ (Padrão do XFCE)'
-          echo -e '\e[31;1m [' 4 '] \e[m Caja. -------------- (Padrão do Mate)'
-          echo -e '\e[31;1m [' 5 '] \e[m Dolphin. ----------- (Padrão do KDE Plasma)'
-          echo -e '\e[31;1m [' 6 '] \e[m DDE-File-Manager. -- (Padrão do Deepin)'
-          echo
-          echo -n "Digite um número e precione ENTER: " ; read resp4
+     		case $resp4 in
 
-          if ! [ -x /usr/bin/xterm ]
-          then
-            clear
-              echo "Instalando XTerm"
-              echo "****************"
-              echo
-            echo "$senha1" | sudo -S apt-get install xterm -y
-          fi
+       			#Dropbox para o Nautilus
+          		1)
+					XTERM
+              		clear
+              		echo "Instalando Nautilus-DropBox"
+              		echo "***************************"
+              		echo
+              		echo "$senha1" | sudo -S apt-get install nautilus-dropbox -y
+              		echo "$senha1" | sudo -S apt-get install -f -y --force-yes
+              		echo "$senha1" | sudo -S xterm -e dropbox start -i &
+              		sleep 5
 
-          #Dropbox para o Nautilus
-          if [ "$resp4" = "$g1" ]
-          then
-              clear
-              echo "Instalando Nautilus-DropBox"
-              echo "***************************"
-              echo
-              echo "$senha1" | sudo -S apt-get install nautilus-dropbox -y
-              echo "$senha1" | sudo -S apt-get install -f -y --force-yes
-              echo "$senha1" | sudo -S xterm -e dropbox start -i &
-              sleep 5
-              echo
-              if [ -x /usr/bin/dropbox ]
-              then
-                echo "==> $var30 Está Instalado!"
-              else
-                echo "xxx> O $var30 Não Foi Instalado!"
-              fi
-              echo
-              sleep 2
+              		if [ -x /usr/bin/dropbox ]
+              		then
+              			echo
+                		echo "==> DropBox Está Instalado!"
+             		else
+             			echo
+                		echo "xxx> O DropBox Não Foi Instalado!"
+              		fi
+            		echo
+              		echo
+              		echo
+              		echo "Pressione ENTER para Voltar ao Menu de Pacotes Avançados!"
+              		read		
+          		;;
 
-          #Dropbox para o Nemo
-          elif [ "$resp4" = "$g2" ]
-          then
-              clear
-              echo "Instalando Nemo-DropBox"
-              echo "***********************"
-              echo
-              echo "$senha1" | sudo -S apt-get install nemo-dropbox -y
-              echo "$senha1" | sudo -S apt-get install -f -y --force-yes
-              echo "$senha1" | sudo -S xterm -e dropbox start -i &
-              sleep 5
-              echo
-              if [ -x /usr/bin/dropbox ]
-              then
-                echo "==> $var30 Está Instalado!"
-              else
-                echo "xxx> O $var30 Não Foi Instalado!"
-              fi
-              echo
-              sleep 2
+	          	#Dropbox para o Nemo
+    	      	2)
+					XTERM
+        	    	clear
+              		echo "Instalando Nemo-DropBox"
+              		echo "***********************"
+              		echo
+              		echo "$senha1" | sudo -S apt-get install nemo-dropbox -y
+              		echo "$senha1" | sudo -S apt-get install -f -y --force-yes
+              		echo "$senha1" | sudo -S xterm -e dropbox start -i &
+              		sleep 5
 
-          #Dropbox para o Thunar
-          elif [ "$resp4" = "$g3" ]
-          then
-              clear
-              echo "Instalando Thunar-DropBox"
-              echo "*************************"
-              echo
-              echo "$senha1" | sudo -S apt-get install thunar-dropbox-plugin -y
-              echo "$senha1" | sudo -S apt-get install dropbox -y
-              echo "$senha1" | sudo -S apt-get install -f -y --force-yes
-              echo "$senha1" | sudo -S xterm -e dropbox start -i &
-              sleep 5
-              echo
-              if [ -x /usr/bin/dropbox ]
-              then
-                echo "==> $var30 Está Instalado!"
-              else
-                echo "xxx> O $var30 Não Foi Instalado!"
-              fi
-              echo
-              sleep 2
+              		if [ -x /usr/bin/dropbox ]
+              		then
+              			echo
+                		echo "==> DropBox Está Instalado!"
+              		else
+              			echo
+                		echo "xxx> O DropBox Não Foi Instalado!"
+              		fi
+            		echo
+              		echo
+              		echo
+              		echo "Pressione ENTER para Voltar ao Menu de Pacotes Avançados!"
+              		read
+          		;;
 
-          #Dropbox para o Caja
-          elif [ "$resp4" = "$g4" ]
-          then
-              clear
-              echo "Instalando Caja-DropBox"
-              echo "***********************"
-              echo
-              echo "$senha1" | sudo -S apt-get install caja-dropbox -y
-              echo "$senha1" | sudo -S apt-get install -f -y --force-yes
-              echo "$senha1" | sudo -S xterm -e dropbox start -i &
-              sleep 5
-              echo
-              if [ -x /usr/bin/dropbox ]
-              then
-                echo "==> $var30 Está Instalado!"
-              else
-                echo "xxx> O $var30 Não Foi Instalado!"
-              fi
-              echo
-              sleep 2
+          		#Dropbox para o Thunar
+          		3)
+              		XTERM
+              		clear
+              		echo "Instalando Thunar-DropBox"
+              		echo "*************************"
+              		echo
+              		echo "$senha1" | sudo -S apt-get install thunar-dropbox-plugin -y
+              		echo "$senha1" | sudo -S apt-get install dropbox -y
+              		echo "$senha1" | sudo -S apt-get install -f -y --force-yes
+              		echo "$senha1" | sudo -S xterm -e dropbox start -i &
+              		sleep 5
 
-          #Dropbox para o Dolphin
-          elif [ "$resp4" = "$g5" ]
-          then
-              clear
-              echo "Instalando DropBox"
-              echo "******************"
-              echo
-              echo "$senha1" | sudo -S apt-get install dropbox -y
-              echo "$senha1" | sudo -S apt-get install -f -y --force-yes
-              echo "$senha1" | sudo -S xterm -e dropbox start -i &
-              sleep 5
-              echo
-              if [ -x /usr/bin/dropbox ]
-              then
-                echo "==> $var30 Está Instalado!"
-              else
-                echo "xxx> O $var30 Não Foi Instalado!"
-              fi
-              echo
-              echo "Para o Ícone aparecer na bandeja, ative a opção nas configurações do Dolphin!"
-              sleep 4
-              echo
+              		if [ -x /usr/bin/dropbox ]
+              		then
+              			echo
+                		echo "==> DropBox Está Instalado!"
+              		else
+              			echo
+                		echo "xxx> O DropBox Não Foi Instalado!"
+              		fi
+            		echo
+              		echo
+              		echo
+              		echo "Pressione ENTER para Voltar ao Menu de Pacotes Avançados!"
+              		read
+				;;
 
-          #Dropbox para o DDE-File-Manager
-          elif [ "$resp4" = "$g6" ]
-          then
-              clear
-              echo "Instalando DropBox"
-              echo "******************"
-              echo
-              echo "$senha1" | sudo -S apt-get install dropbox -y
-              echo "$senha1" | sudo -S apt-get install -f -y --force-yes
-              echo
-              if [ -x /usr/bin/dropbox ]
-              then
-                echo "==> $var30 Está Instalado!"
-              else
-                echo "xxx> O $var30 Não Foi Instalado!"
-              fi
-              echo
+				#Dropbox para o Caja
+				4)
+              		XTERM
+              		clear
+              		echo "Instalando Caja-DropBox"
+              		echo "***********************"
+              		echo
+              		echo "$senha1" | sudo -S apt-get install caja-dropbox -y
+              		echo "$senha1" | sudo -S apt-get install -f -y --force-yes
+              		echo "$senha1" | sudo -S xterm -e dropbox start -i &
+              		sleep 5
 
-          else
-              echo
-              echo "Opção Inválida!"
-          fi
-          sleep 2
-      else
-          echo
-          echo "==> $var30 Já Está Instalado!"
-          sleep 2
-      fi
-  else
-      echo
-      echo "xxx> O $var30 Não Será Instalado!"
-      echo
-      sleep 2
-  fi
-  echo
-  echo
-  echo
-  echo "Pressione ENTER para retornar ao Menu ..."
-  read _ENTER
+              		if [ -x /usr/bin/dropbox ]
+              		then
+                		echo
+                		echo "==> DropBox Está Instalado!"
+              		else
+              			echo
+                		echo "xxx> O DropBox Não Foi Instalado!"
+              		fi
+              		echo
+            		echo
+              		echo
+              		echo
+              		echo "Pressione ENTER para Voltar ao Menu de Pacotes Avançados!"
+              		read
+				;;
+
+				#Dropbox para o Dolphin
+				5)
+            		XTERM
+            		clear
+              		echo "Instalando DropBox"
+              		echo "******************"
+              		echo
+              		echo "$senha1" | sudo -S apt-get install dropbox -y
+              		echo "$senha1" | sudo -S apt-get install -f -y --force-yes
+              		echo "$senha1" | sudo -S xterm -e dropbox start -i &
+              		sleep 5
+
+              		if [ -x /usr/bin/dropbox ]
+              		then
+              			echo
+                		echo "==> DropBox Está Instalado!"
+              		else
+              			echo
+                		echo "xxx> O DropBox Não Foi Instalado!"
+              		fi
+              		echo
+              		echo "Para o Ícone aparecer na bandeja, ative a opção nas configurações do Dolphin!"
+              		echo
+              		echo
+              		echo
+              		echo "Pressione ENTER para Voltar ao Menu de Pacotes Avançados!"
+              		read
+				;;
+
+				#Início: Dropbox para o DDE-File-Manager
+				6)
+              		XTERM
+              		clear
+              		echo "Instalando DropBox"
+              		echo "******************"
+              		echo
+              		echo "$senha1" | sudo -S apt-get install dropbox -y
+              		echo "$senha1" | sudo -S apt-get install -f -y --force-yes
+              		echo "$senha1" | sudo -S xterm -e dropbox start -i &
+              		sleep 5
+
+              		if [ -x /usr/bin/dropbox ]
+              		then
+                		echo
+                		echo "==> DropBox Está Instalado!"
+              		else
+              			echo
+                		echo "xxx> O DropBox Não Foi Instalado!"
+              		fi
+            		echo
+              		echo
+              		echo
+              		echo "Pressione ENTER para Voltar ao Menu de Pacotes Avançados!"
+              		read
+				;; #Fim: Dropbox para o DDE-File-Manager
+
+				V) InstalarPacotesAvancados ;;
+				S) Sair ;;
+				*) 
+					echo
+              		echo "Opção Inválida!"
+				;;
+        	esac
+
+  		else
+      		echo
+      		echo "==> DropBox Já Está Instalado!"
+    		echo
+      		echo
+      		echo
+      		echo "Pressione ENTER para Voltar ao Menu de Pacotes Avançados!"
+      		read
+      		InstalarPacotesAvancados
+  		fi
+    done
 } #Fim: Instalação do DropBox
 
 
@@ -1177,9 +1181,9 @@ function Multisystem(){
           echo
           if [ -x /usr/local/bin/multisystem ]
           then
-              echo "==> $var31 Está Instalado!"
+              echo "==> Multisystem Está Instalado!"
           else
-              echo "xxx> O $var31 Não Foi Instalado!"
+              echo "xxx> O Multisystem Não Foi Instalado!"
           fi
       if [ '$USER adm' ]
       then
@@ -1198,7 +1202,7 @@ function Multisystem(){
               echo "$senha1" | sudo -S gpasswd -a $USER adm
         fi
           echo
-          echo "==> O $var31 Já Está Instalado!"
+          echo "==> O Multisystem Já Está Instalado!"
       if [ '$USER adm' ]
       then
         echo
@@ -1214,7 +1218,7 @@ function Multisystem(){
       echo
   else
       echo
-      echo "xxx> O $var31 Não Será Instalado!"
+      echo "xxx> O Multisystem Não Será Instalado!"
       echo
       sleep 2
   fi
@@ -1222,7 +1226,7 @@ function Multisystem(){
   echo
   echo
   echo "Pressione ENTER para retornar ao Menu ..."
-  read _ENTER
+  read
 } #Fim: Instalação do Multissystem
 
 
@@ -1312,7 +1316,7 @@ function MultiBootUSB(){
   echo
   echo
   echo "Pressione ENTER para retornar ao Menu ..."
-  read _ENTER
+  read
 } #Fim: Instalação do MultiBootUSB
  
 
@@ -1340,21 +1344,21 @@ function VirtualBox(){
           echo
           if [ -x /usr/bin/virtualbox ]
           then
-              echo "==> $var32 Está Instalado!"
+              echo "==> VirtualBox Está Instalado!"
           else
-              echo "xxx> O $var32 Não Foi Instalado!"
+              echo "xxx> O VirtualBox Não Foi Instalado!"
           fi
           echo
           sleep 2
       else
           echo
-          echo "==> $var32 Já Está Instalado!"
+          echo "==> VirtualBox Já Está Instalado!"
           echo
           sleep 2
       fi
   else
       echo
-      echo "xxx> O $var32 Não Será Instalado!"
+      echo "xxx> O VirtualBox Não Será Instalado!"
       echo
       sleep 2
   fi
@@ -1362,7 +1366,7 @@ function VirtualBox(){
   echo
   echo
   echo "Pressione ENTER para retornar ao Menu ..."
-  read _ENTER
+  read
 } #Fim: Instalação do VirtualBox
 
 
@@ -1390,21 +1394,21 @@ function Steam(){
           echo
           if [ -x /usr/games/steam ]
           then
-            echo "==> $var33 Está Instalado!"
+            echo "==> Steam Está Instalado!"
           else
-            echo "xxx> O $var33 Não Foi Instalado!"
+            echo "xxx> O Steam Não Foi Instalado!"
           fi
           echo
           sleep 2
       else
           echo
-          echo "==> $var33 Já Está Instalado!"
+          echo "==> Steam Já Está Instalado!"
           echo
           sleep 2
       fi
   else
       echo
-      echo "xxx> O $var33 Não Será Instalado!"
+      echo "xxx> O Steam Não Será Instalado!"
       echo
       sleep 2
   fi
@@ -1412,7 +1416,7 @@ function Steam(){
   echo
   echo
   echo "Pressione ENTER para retornar ao Menu ..."
-  read _ENTER
+  read
 } #Fim: Instalação do Steam
 
 
@@ -1441,21 +1445,21 @@ function PlayOnLinux(){
           echo
           if [ -x /usr/bin/playonlinux ]
           then
-            echo "==> $var34 Está Instalado!"
+            echo "==> PlayOnLinux Está Instalado!"
           else
-            echo "xxx> O $var34 Não Foi Instalado!"
+            echo "xxx> O PlayOnLinux Não Foi Instalado!"
           fi
           echo
           sleep 2
       else
           echo
-          echo "==> $var34 Já Está Instalado!"
+          echo "==> PlayOnLinux Já Está Instalado!"
           echo
           sleep 2
       fi
   else
       echo
-      echo "xxx> O $var34 Não Será Instalado!"
+      echo "xxx> O PlayOnLinux Não Será Instalado!"
       echo
       sleep 2
   fi
@@ -1463,7 +1467,7 @@ function PlayOnLinux(){
   echo
   echo
   echo "Pressione ENTER para retornar ao Menu ..."
-  read _ENTER
+  read
 } #Fim: Instalação do PalyOnLinux
 
 
@@ -1514,7 +1518,7 @@ function Wine(){
   echo
   echo
   echo "Pressione ENTER para retornar ao Menu ..."
-  read _ENTER
+  read
 } #Fim: Instalação do Wine
 
 
@@ -1544,21 +1548,21 @@ function Blender(){
 			echo
 			if [ -x /usr/bin/blender ]
 			then
-				echo "==> $var35 Está Instalado!"
+				echo "==> Blender Está Instalado!"
 			else
-				echo "xxx> O $var35 Não Foi Instalado!"
+				echo "xxx> O Blender Não Foi Instalado!"
 			fi
 			echo
 			sleep 2
       else
 			echo
-			echo "==> $var35 Já Está Instalado!"
+			echo "==> Blender Já Está Instalado!"
 			echo
 			sleep 2
       fi
   else
       echo
-      echo "xxx> O $var35 Não Será Instalado!"
+      echo "xxx> O Blender Não Será Instalado!"
       echo
       sleep 2
   fi
@@ -1566,7 +1570,7 @@ function Blender(){
   echo
   echo
   echo "Pressione ENTER para retornar ao Menu ..."
-  read _ENTER
+  read
 } #Fim: Instalação do Blender
 
 
@@ -1596,21 +1600,21 @@ function Grub_Customizer(){
         	echo
         	if [ -x /usr/bin/grub-customizer ]
         	then
-            	echo "==> $var36 Está Instalado!"
+            	echo "==> Grub-Customizer Está Instalado!"
         	else
-            	echo "xxx> O $var36 Não Foi Instalado!"
+            	echo "xxx> O Grub-Customizer Não Foi Instalado!"
         	fi
         	echo
         	sleep 2
     	else
         	echo
-        	echo "==> $var36 Já Está Instalado!"
+        	echo "==> Grub-Customizer Já Está Instalado!"
         	echo
         	sleep 2
     	fi
 	else
     	echo
-    	echo "xxx> O $var36 Não Será Instalado!"
+    	echo "xxx> O Grub-Customizer Não Será Instalado!"
     	echo
       sleep 2
 	fi
@@ -1618,7 +1622,7 @@ function Grub_Customizer(){
 	echo
 	echo
 	echo "Pressione ENTER para retornar ao Menu ..."
-	read _ENTER
+	read
 } #Fim: Instalação do Grub-Customizer
 
 
@@ -1646,21 +1650,21 @@ function Synaptic(){
         	echo
         	if [ -x /usr/sbin/synaptic ]
         	then
-            	echo "==> $var37 Está Instalado!"
+            	echo "==> Synaptic Está Instalado!"
         	else
-            	echo "xxx> O $var37 Não Foi Instalado!"
+            	echo "xxx> O Synaptic Não Foi Instalado!"
         	fi
         	echo
         	sleep 2
     	else
         	echo
-        	echo "==> $var37 Já Está Instalado!"
+        	echo "==> Synaptic Já Está Instalado!"
         	echo
           sleep 2
     	fi
 	else
       echo
-      echo "xxx> O $var37 Não Será Instalado!"
+      echo "xxx> O Synaptic Não Será Instalado!"
       echo
       sleep 2
 	fi
@@ -1668,7 +1672,7 @@ function Synaptic(){
 	echo
 	echo
 	echo "Pressione ENTER para retornar ao Menu ..."
-	read _ENTER
+	read
 } #Fim: Instalação do Synaptic
 
 #Início: Instalação do Stoq
@@ -1697,20 +1701,20 @@ function Stoq(){
           echo
           if [ -x /usr/bin/stoq ]
           then
-              echo "==> $var38 Está Instalado!"
+              echo "==> Stoq Está Instalado!"
           else
-              echo "xxx> O $var38 Não Foi Instalado!"
+              echo "xxx> O Stoq Não Foi Instalado!"
           fi
           echo
           sleep 2
       else
           echo
-          echo "==> O $var38 Já Está Instalado!"
+          echo "==> O Stoq Já Está Instalado!"
           sleep 2
       fi
   else
       echo
-      echo "xxx> O $var38 Não Será Instalado!"
+      echo "xxx> O Stoq Não Será Instalado!"
       echo
       sleep 2
   fi
@@ -1718,7 +1722,7 @@ function Stoq(){
   echo
   echo
   echo "Pressione ENTER para retornar ao Menu ..."
-  read _ENTE
+  read 
 } #Fim: Instalação do Stoq
 
 
@@ -1736,7 +1740,7 @@ function Biblias(){
   if [ "$resp17" = "$Sim" ]
   then
       #Instalação da BibleTime  
-      if ! [ -x /usr/bin/bibletime ]
+      if ! [ -x /usr/bin/bibletime ] && [ -x /usr/bin/xiphos ]
       then
           clear
           echo "Instalando a BibleTime"
@@ -1751,13 +1755,13 @@ function Biblias(){
           echo
           if [ -x /usr/bin/bibletime ]
           then
-              echo "==> $var39 Está Instalada!"
+              echo "==> BibleTime Está Instalada!"
           else
-              echo "xxx> A $var39 Não Foi Instalada!"
+              echo "xxx> A BibleTime Não Foi Instalada!"
           fi
       else
           echo
-          echo "==> $var39 Já Está Instalada!"
+          echo "==> BibleTime Já Está Instalada!"
           sleep 2
       fi
 
@@ -1775,20 +1779,20 @@ function Biblias(){
           echo
           if [ -x /usr/bin/xiphos ]
           then
-              echo "==> $var40 Está Instalada!"
+              echo "==> Xiphos Está Instalada!"
           else
-              echo "xxx> A $var40 Não Foi Instalada!"
+              echo "xxx> A Xiphos Não Foi Instalada!"
           fi
           sleep 2
       else
           echo
-          echo "==> $var40 Já Está Instalada!"
+          echo "==> Xiphos Já Está Instalada!"
           sleep 2
       fi
       echo
   else
       echo
-      echo "xxx> As Bíblias $var39 e $var40 Não Serão Instaladas!"
+      echo "xxx> As Bíblias BibleTime e Xiphos Não Serão Instaladas!"
       echo
       sleep 2
   fi
@@ -1796,7 +1800,7 @@ function Biblias(){
   echo
   echo
   echo "Pressione ENTER para retornar ao Menu ..."
-  read _ENTE
+  read
 } #Fim: Instalação da BibleTime & Xiphos
 
 
@@ -1878,8 +1882,53 @@ function Dicionario(){
   echo
   echo
   echo "Pressione ENTER para retornar ao Menu ..."
-  read _ENTE
+  read
 } #Fim: Instalação do Dicionário GoldenDict
+
+
+#Início: Instalação do WhatsApp Desktop
+function WhastApp(){
+    clear
+    echo "Instalando WhatsApp-Desktop"
+    echo "***************************"
+	echo
+	echo
+	echo "Você Deseja Instalar o WhatsApp-Desktop?"
+	echo -n "[Digite s/n]: "; read resp41
+	resp41=`printf $resp41 | tr [a-z] [A-Z]`
+
+	if [ "$resp41" = "$Sim" ]
+	then
+	    if ! [ -x /usr/local/bin/WhatsApp ]
+	    then
+	        clear
+	        echo "Instalando WhatsApp-Desktop"
+	        echo "***************************"
+	        echo
+	        echo "$senha1" | sudo -S apt-get install whatsapp-desktop -y
+	        echo "$senha1" | sudo -S apt-get install -f -y --force-yes
+	        echo
+	        if [ -x /usr/local/bin/WhatsApp ]
+	        then
+	          echo "==> WhatsApp Desktop Está Instalado!"
+	        else
+	          echo "xxx> O WhatsApp Desktop Não Foi Instalado!"
+	        fi
+	    else
+	        echo
+	        echo "==> O WhatsApp Desktop Já Está Instalado!"
+	    fi
+	else
+      echo
+      echo "xxx> WhatsApp Desktop Não Será Instalado!"
+      sleep 2	
+	fi
+    echo
+    echo
+    echo
+    echo "Pressione ENTER para retornar ao Menu de Navegadores!"
+    read
+} #Fim: Instalação do WhatsApp Desktop
 
 
 #Início: Menu de Pacotes Development
@@ -2280,9 +2329,8 @@ function Python(){
 				echo "*********************************"
 				echo
 				echo "$senha1" | sudo -S apt-get install python -y
-				echo "$senha1" | sudo -S apt-get install python-django -y
-				
-				;;
+				echo "$senha1" | sudo -S apt-get install python-django -y	
+			;;
 
 			2) 
 				clear
@@ -2291,8 +2339,7 @@ function Python(){
 				echo
 				echo "$senha1" | sudo -S apt-get install python3 -y
 				echo "$senha1" | sudo -S apt-get install python3-django -y
-				
-				;;
+			;;
 
 			V) Development ;;
 			S) Sair ;;
@@ -2531,7 +2578,7 @@ function AtualizarPacotes(){
   echo ""
   echo ""
   echo "Pressione ENTER para retornar ao Menu Principal ..."
-  read _ENTER
+  read
 } #Fim: Atualizador de Pacotes
 
 
@@ -2591,7 +2638,7 @@ function AtualizarSistema(){
   echo ""
   echo ""
   echo "Pressione ENTER para retornar ao Menu Principal ..."
-  read _ENTER
+  read
 } #Fim: Atualizador do Sistema
 
 
@@ -2764,7 +2811,6 @@ function VerificarPacotesAvancados(){
 	echo "            *                                                           *" 
 	echo "            *************************************************************"
 	echo
-	echo
 
 	rm -Rf /home/$USER/.ListPack.txt
 	touch /home/$USER/.ListPack.txt
@@ -2776,170 +2822,170 @@ function VerificarPacotesAvancados(){
 	# Testando se o Tema Papirus foi instalado
 	if [ -d /usr/share/icons/Papirus ]
 	then
-		echo "==> $var1 está instalado! ------------ `dpkg -s papirus-icon-theme | grep ^V --color=never | cut -d+ -f1`" >> /home/$USER/.ListPack.txt
+		echo "==> Tema Papirus está instalado! ------------ `dpkg -s papirus-icon-theme | grep ^V --color=never | cut -d+ -f1`" >> /home/$USER/.ListPack.txt
 	else
-		echo "xxx> O $var1 não foi instalado!" >> /home/$USER/.ListPack.txt
+		echo "xxx> O Tema Papirus não foi instalado!" >> /home/$USER/.ListPack.txt
 	fi
 
 	# Testando se o Tema Arc foi instalado
 	if [ -d /usr/share/themes/Arc ]
 	then
-		echo "==> $var2 está instalado! ---------------- `dpkg -s arc-theme | grep ^V --color=never`" >> /home/$USER/.ListPack.txt
+		echo "==> Tema Arc está instalado! ---------------- `dpkg -s arc-theme | grep ^V --color=never`" >> /home/$USER/.ListPack.txt
 	else
-		echo "xxx> O $var2 não foi instalado!" >> /home/$USER/.ListPack.txt
+		echo "xxx> O Tema Arc não foi instalado!" >> /home/$USER/.ListPack.txt
 	fi
 
 	# Testando se o LibreOffice foi instalado
 	if [ -x /usr/bin/libreoffice ]
 	then
-		echo -n "==> $var3 está instalado! ------------- " >> /home/$USER/.ListPack.txt
+		echo -n "==> LibreOffice está instalado! ------------- " >> /home/$USER/.ListPack.txt
 		echo "Version: `libreoffice --version | cut -c13-`" >> /home/$USER/.ListPack.txt
 	else
-		echo "xxx> Houve um problema! O $var3 não foi instalado." >> /home/$USER/.ListPack.txt
+		echo "xxx> Houve um problema! O LibreOffice não foi instalado." >> /home/$USER/.ListPack.txt
 	fi
 
 	# Testando se o msttcorefonts foi instalado
 	if [ -d /usr/share/fonts/truetype/msttcorefonts ]
 	then
-		echo "==> $var4 estão instaladas!" >> /home/$USER/.ListPack.txt
+		echo "==> Fontes da Microsoft estão instaladas!" >> /home/$USER/.ListPack.txt
 	else
-		echo "xxx> Houve um problema! As $var4 não foram instaladas." >> /home/$USER/.ListPack.txt
+		echo "xxx> Houve um problema! As Fontes da Microsoft não foram instaladas." >> /home/$USER/.ListPack.txt
 	fi
 
 	# Testando se o Brasero foi instalado
 	if [ -x /usr/bin/brasero ]
 	then
-		echo "==> $var5 está instalado! ----------------- `dpkg -s brasero | grep ^V --color=never`" >> /home/$USER/.ListPack.txt
+		echo "==> Brasero está instalado! ----------------- `dpkg -s brasero | grep ^V --color=never`" >> /home/$USER/.ListPack.txt
 	else
-		echo "xxx> Houve um problema! O $var5 não foi instalado." >> /home/$USER/.ListPack.txt
+		echo "xxx> Houve um problema! O Brasero não foi instalado." >> /home/$USER/.ListPack.txt
 	fi
 
 	# Testando se o VLC foi instalado
 	if [ -x /usr/bin/vlc ]
 	then
-		echo "==> $var6 está instalado! --------------------- `dpkg -s vlc | grep ^V --color=never`" >> /home/$USER/.ListPack.txt
+		echo "==> VLC está instalado! --------------------- `dpkg -s vlc | grep ^V --color=never | cut -d+ -f1`" >> /home/$USER/.ListPack.txt
 	else
-		echo "xxx> Houve um problema! O $var6 não foi instalado." >> /home/$USER/.ListPack.txt
+		echo "xxx> Houve um problema! O VLC não foi instalado." >> /home/$USER/.ListPack.txt
 	fi
 
 	# Testando se o Parole foi instalado
 	if [ -x /usr/bin/parole ]
 	then
-		echo "==> $var7 está instalado! ------------------ `dpkg -s parole | grep ^V --color=never`" >> /home/$USER/.ListPack.txt
+		echo "==> Parole está instalado! ------------------ `dpkg -s parole | grep ^V --color=never`" >> /home/$USER/.ListPack.txt
 	else
-		echo "xxx> Houve um problema! O $var7 não foi instalado." >> /home/$USER/.ListPack.txt
+		echo "xxx> Houve um problema! O Parole não foi instalado." >> /home/$USER/.ListPack.txt
 	fi
 
 	# Testando se o ClipGrab foi instalado
 	if [ -x /usr/bin/clipgrab ]
 	then
-		echo "==> $var8 está instalado! ---------------- `dpkg -s clipgrab | grep ^V --color=never`" >> /home/$USER/.ListPack.txt
+		echo "==> ClipGrab está instalado! ---------------- `dpkg -s clipgrab | grep ^V --color=never`" >> /home/$USER/.ListPack.txt
 	else
-		echo "xxx> Houve um problema! O $var8 não foi instalado." >> /home/$USER/.ListPack.txt
+		echo "xxx> Houve um problema! O ClipGrab não foi instalado." >> /home/$USER/.ListPack.txt
 	fi
 
 	# Testando se o Gimp foi instalado
 	if [ -x /usr/bin/gimp ]
 	then
-		echo "==> $var9 está instalado! -------------------- `dpkg -s gimp | grep ^V --color=never`" >> /home/$USER/.ListPack.txt
+		echo "==> Gimp está instalado! -------------------- `dpkg -s gimp | grep ^V --color=never`" >> /home/$USER/.ListPack.txt
 	else
-		echo "xxx> Houve um problema! O $var9 não foi instalado." >> /home/$USER/.ListPack.txt
+		echo "xxx> Houve um problema! O Gimp não foi instalado." >> /home/$USER/.ListPack.txt
 	fi
 
 	# Testando se o Inkscape foi instalado
 	if [ -x /usr/bin/inkscape ]
 	then
-		echo "==> $var10 está instalado! ---------------- `dpkg -s inkscape | grep ^V --color=never`" >> /home/$USER/.ListPack.txt
+		echo "==> Inkscape está instalado! ---------------- `dpkg -s inkscape | grep ^V --color=never`" >> /home/$USER/.ListPack.txt
 	else
-		echo "xxx> Houve um problema! O $var10 não foi instalado." >> /home/$USER/.ListPack.txt
+		echo "xxx> Houve um problema! O Inkscape não foi instalado." >> /home/$USER/.ListPack.txt
 	fi
 
 	# Testando se o Kdenlive foi instalado
 	if [ -x /usr/bin/kdenlive ]
 	then
-		echo "==> $var11 está instalado! ---------------- `dpkg -s kdenlive | grep ^V --color=never | cut -d+ -f1`" >> /home/$USER/.ListPack.txt
+		echo "==> Kdenlive está instalado! ---------------- `dpkg -s kdenlive | grep ^V --color=never | cut -d+ -f1`" >> /home/$USER/.ListPack.txt
 	else
-		echo "xxx> Houve um problema! O $var11 não foi instalado." >> /home/$USER/.ListPack.txt
+		echo "xxx> Houve um problema! O Kdenlive não foi instalado." >> /home/$USER/.ListPack.txt
 	fi
 
 	# Testando se o OBS-Studio foi instalado
 	if [ -x /usr/bin/obs ]
 	then
-		echo "==> $var12 está instalado! -------------- `dpkg -s obs-studio | grep ^V --color=never`" >> /home/$USER/.ListPack.txt
+		echo "==> OBS-Studio está instalado! -------------- `dpkg -s obs-studio | grep ^V --color=never`" >> /home/$USER/.ListPack.txt
 	else
-		echo "xxx> Houve um problema! O $var12 não foi instalado." >> /home/$USER/.ListPack.txt
+		echo "xxx> Houve um problema! O OBS-Studio não foi instalado." >> /home/$USER/.ListPack.txt
 	fi
 
 	# Testando se o Kazam foi instalado
 	if [ -x /usr/bin/kazam ]
 	then
-		echo "==> $var13 está instalado! ------------------- `dpkg -s kazam | grep ^V --color=never`" >> /home/$USER/.ListPack.txt
+		echo "==> Kazam está instalado! ------------------- `dpkg -s kazam | grep ^V --color=never`" >> /home/$USER/.ListPack.txt
 	else
-		echo "xxx> Houve um problema! O $var13 não foi instalado." >> /home/$USER/.ListPack.txt
+		echo "xxx> Houve um problema! O Kazam não foi instalado." >> /home/$USER/.ListPack.txt
 	fi
 
 	# Testando se o GParted foi instalado
 	if [ -x /usr/bin/gparted-pkexec ]
 	then
-		echo "==> $var14 está instalado! ----------------- `dpkg -s gparted | grep ^V --color=never`" >> /home/$USER/.ListPack.txt
+		echo "==> GParted está instalado! ----------------- `dpkg -s gparted | grep ^V --color=never`" >> /home/$USER/.ListPack.txt
 	else
-		echo "xxx> Houve um problema! O $var14 não foi instalado." >> /home/$USER/.ListPack.txt
+		echo "xxx> Houve um problema! O GParted não foi instalado." >> /home/$USER/.ListPack.txt
 	fi
 
 	# Testando se o Gnome-Disks foi instalado
 	if [ -x /usr/bin/gnome-disks ]
 	then
-		echo "==> $var15 está instalado! ------------- `dpkg -s gnome-disk-utility | grep ^V --color=never | cut -c1-19`" >> /home/$USER/.ListPack.txt
+		echo "==> Gnome-Disks está instalado! ------------- `dpkg -s gnome-disk-utility | grep ^V --color=never | cut -c1-19`" >> /home/$USER/.ListPack.txt
 	else
-		echo "xxx> Houve um problema! O $var15 não foi instalado." >> /home/$USER/.ListPack.txt
+		echo "xxx> Houve um problema! O Gnome-Disks não foi instalado." >> /home/$USER/.ListPack.txt
 	fi
 
 	# Testando se o Monitor do Sistema do Gnome foi instalado
 	if [ -x /usr/bin/gnome-system-monitor ]
 	then
-		echo "==> $var16 está instalado! ------ `dpkg -s gnome-system-monitor | grep ^V --color=never | cut -c1-17`" >> /home/$USER/.ListPack.txt
+		echo "==> Monitor do Sistema está instalado! ------ `dpkg -s gnome-system-monitor | grep ^V --color=never | cut -c1-17`" >> /home/$USER/.ListPack.txt
 	else
-		echo "xxx> Houve um problema! O $var16 não foi instalado." >> /home/$USER/.ListPack.txt
+		echo "xxx> Houve um problema! O Monitor do Sistema não foi instalado." >> /home/$USER/.ListPack.txt
 	fi
 
 	# Testando se o Converseen foi instalado
 	if [ -x /usr/bin/converseen ]
 	then
-		echo "==> $var17 está instalado! -------------- `dpkg -s converseen | grep ^V --color=never`" >> /home/$USER/.ListPack.txt
+		echo "==> Converseen está instalado! -------------- `dpkg -s converseen | grep ^V --color=never`" >> /home/$USER/.ListPack.txt
 	else
-		echo "xxx> Houve um problema! O $var17 não foi instalado." >> /home/$USER/.ListPack.txt
+		echo "xxx> Houve um problema! O Converseen não foi instalado." >> /home/$USER/.ListPack.txt
 	fi
 
 	# Testando se o Transmission foi instalado
 	if [ -x /usr/bin/transmission-gtk ]
 	then
-		echo "==> $var18 está instalado! ------------ `dpkg -s transmission-gtk | grep ^V --color=never | cut -c1-15`" >> /home/$USER/.ListPack.txt
+		echo "==> Transmission está instalado! ------------ `dpkg -s transmission-gtk | grep ^V --color=never | cut -c1-15`" >> /home/$USER/.ListPack.txt
 	else
-		echo "xxx> Houve um problema! O $var18 não foi instalado." >> /home/$USER/.ListPack.txt
+		echo "xxx> Houve um problema! O Transmission não foi instalado." >> /home/$USER/.ListPack.txt
 	fi
 
 	# Testando se o Audacity foi instalado
 	if [ -x /usr/bin/audacity ]
 	then
-		echo "==> $var19 está instalado! ---------------- `dpkg -s audacity | grep ^V --color=never`" >> /home/$USER/.ListPack.txt
+		echo "==> Audacity está instalado! ---------------- `dpkg -s audacity | grep ^V --color=never`" >> /home/$USER/.ListPack.txt
 	else
-		echo "xxx> Houve um problema! O $var19 não foi instalado." >> /home/$USER/.ListPack.txt
+		echo "xxx> Houve um problema! O Audacity não foi instalado." >> /home/$USER/.ListPack.txt
 	fi
 
 	# Testando se o Spotify foi instalado
 	if [ -x /usr/bin/spotify ]
 	then
-		echo "==> $var20 está instalado! ----------------- `dpkg -s spotify-client | grep ^Ver --color=never`" >> /home/$USER/.ListPack.txt
+		echo "==> Spotify está instalado! ----------------- `dpkg -s spotify-client | grep ^Ver --color=never`" >> /home/$USER/.ListPack.txt
 	else
-		echo "xxx> Houve um problema! O $var20 não foi instalado." >> /home/$USER/.ListPack.txt
+		echo "xxx> Houve um problema! O Spotify não foi instalado." >> /home/$USER/.ListPack.txt
 	fi
 
 	# Testando se o Curlew foi instalado
 	if [ -x /usr/bin/curlew ]
 	then
-		echo "==> $var21 está instalado! ------------------ `dpkg -s curlew | grep ^Ver --color=never`" >> /home/$USER/.ListPack.txt
+		echo "==> Curlew está instalado! ------------------ `dpkg -s curlew | grep ^Ver --color=never`" >> /home/$USER/.ListPack.txt
 	else
-		echo "xxx> Houve um problema! O $var21 não foi instalado." >> /home/$USER/.ListPack.txt
+		echo "xxx> Houve um problema! O Curlew não foi instalado." >> /home/$USER/.ListPack.txt
 	fi
 
 	echo "" >> /home/$USER/.ListPack.txt
@@ -2951,25 +2997,25 @@ function VerificarPacotesAvancados(){
 	# Testando se o Firefox foi instalado
 	if [ -x /usr/bin/firefox ]
 	then
-		echo "==> $var22 está instalado! ----------------- `dpkg -s firefox | grep Version --color=never | cut -d+ -f1`" >> /home/$USER/.ListPack.txt
+		echo "==> Firefox está instalado! ----------------- `dpkg -s firefox | grep Version --color=never | cut -d+ -f1`" >> /home/$USER/.ListPack.txt
 	else
-		echo "xxx> O $var22 não foi instalado!" >> /home/$USER/.ListPack.txt
+		echo "xxx> O Firefox não foi instalado!" >> /home/$USER/.ListPack.txt
 	fi
 
 	# Testando se o Dropbox foi instalado
 	if [ -x /usr/bin/dropbox ]
 	then
-		echo "==> $var30 está instalado! ----------------- Version: `cat /home/$USER/.dropbox-dist/VERSION`" >> /home/$USER/.ListPack.txt
+		echo "==> DropBox está instalado! ----------------- Version: `cat /home/$USER/.dropbox-dist/VERSION`" >> /home/$USER/.ListPack.txt
 	else
-		echo "xxx> O $var30 não foi instalado!" >> /home/$USER/.ListPack.txt
+		echo "xxx> O DropBox não foi instalado!" >> /home/$USER/.ListPack.txt
 	fi
 
 	# Testando se o Multissystem foi instalado
 	if [ -x /usr/local/bin/multisystem ]
 	then
-		echo "==> $var31 está instalado! ------------- `dpkg -s multisystem | grep ^V --color=never`" >> /home/$USER/.ListPack.txt
+		echo "==> Multisystem está instalado! ------------- `dpkg -s multisystem | grep ^V --color=never`" >> /home/$USER/.ListPack.txt
 	else
-		echo "xxx> O $var31 não foi instalado!" >> /home/$USER/.ListPack.txt
+		echo "xxx> O Multisystem não foi instalado!" >> /home/$USER/.ListPack.txt
 	fi
 
 	#Testando se o MultiBootUSB foi instalado
@@ -2983,25 +3029,25 @@ function VerificarPacotesAvancados(){
 	# Testando se o VirtualBox foi instalado
 	if [ -x /usr/bin/virtualbox ]
 	then
-		echo "==> $var32 está instalado! -------------- `dpkg -s virtualbox | grep ^V --color=never`" >> /home/$USER/.ListPack.txt
+		echo "==> VirtualBox está instalado! -------------- `dpkg -s virtualbox | grep ^V --color=never`" >> /home/$USER/.ListPack.txt
 	else
-		echo "xxx> O $var32 não foi instalado!" >> /home/$USER/.ListPack.txt
+		echo "xxx> O VirtualBox não foi instalado!" >> /home/$USER/.ListPack.txt
 	fi
 
 	# Testando se o Steam foi instalado
 	if [ -x /usr/games/steam ]
 	then
-		echo "==> $var33 está instalado! ------------------- `dpkg -s steam | grep ^V --color=never`" >> /home/$USER/.ListPack.txt
+		echo "==> Steam está instalado! ------------------- `dpkg -s steam | grep ^V --color=never`" >> /home/$USER/.ListPack.txt
 	else
-		echo "xxx> O $var33 não foi instalado!" >> /home/$USER/.ListPack.txt
+		echo "xxx> O Steam não foi instalado!" >> /home/$USER/.ListPack.txt
 	fi
 
 	# Testando se o PlayOnLinux foi instalado
 	if [ -x /usr/bin/playonlinux ]
 	then
-		echo "==> $var34 está instalado! ------------- `dpkg -s playonlinux | grep ^V --color=never`" >> /home/$USER/.ListPack.txt
+		echo "==> PlayOnLinux está instalado! ------------- `dpkg -s playonlinux | grep ^V --color=never`" >> /home/$USER/.ListPack.txt
 	else
-		echo "xxx> O $var34 não foi instalado!" >> /home/$USER/.ListPack.txt
+		echo "xxx> O PlayOnLinux não foi instalado!" >> /home/$USER/.ListPack.txt
 	fi
 
 	# Testando se o Wine foi instalado
@@ -3015,49 +3061,49 @@ function VerificarPacotesAvancados(){
 	# Testando se o Blender foi instalado
 	if [ -x /usr/bin/blender ]
 	then
-		echo "==> $var35 está instalado! ----------------- `dpkg -s blender | grep ^V --color=never`" >> /home/$USER/.ListPack.txt
+		echo "==> Blender está instalado! ----------------- `dpkg -s blender | grep ^V --color=never`" >> /home/$USER/.ListPack.txt
 	else
-		echo "xxx> O $var35 não foi instalado!" >> /home/$USER/.ListPack.txt
+		echo "xxx> O Blender não foi instalado!" >> /home/$USER/.ListPack.txt
 	fi
 
 	# Testando se o Grub-Customizer foi instalado
 	if [ -x /usr/bin/grub-customizer ]
 	then
-		echo "==> $var36 está instalado! --------- `dpkg -s grub-customizer | grep ^V --color=never`" >> /home/$USER/.ListPack.txt
+		echo "==> Grub-Customizer está instalado! --------- `dpkg -s grub-customizer | grep ^V --color=never`" >> /home/$USER/.ListPack.txt
 	else
-		echo "xxx> O $var36 não foi instalado!" >> /home/$USER/.ListPack.txt
+		echo "xxx> O Grub-Customizer não foi instalado!" >> /home/$USER/.ListPack.txt
 	fi
 
 	# Testando se o Synaptic foi instalado
 	if [ -x /usr/sbin/synaptic ]
 	then
-		echo "==> $var37 está instalado! ---------------- `dpkg -s synaptic | grep ^V --color=never`" >> /home/$USER/.ListPack.txt
+		echo "==> Synaptic está instalado! ---------------- `dpkg -s synaptic | grep ^V --color=never`" >> /home/$USER/.ListPack.txt
 	else
-		echo "xxx> O $var37 não foi instalado!" >> /home/$USER/.ListPack.txt
+		echo "xxx> O Synaptic não foi instalado!" >> /home/$USER/.ListPack.txt
 	fi
 
 	# Testando se o Stoq foi instalado
 	if [ -x /usr/bin/stoq ]
 	then
-		echo "==> $var38 está instalado! -------------------- `dpkg -s stoq | grep ^V --color=never`" >> /home/$USER/.ListPack.txt
+		echo "==> Stoq está instalado! -------------------- `dpkg -s stoq | grep ^V --color=never`" >> /home/$USER/.ListPack.txt
 	else
-		echo "xxx> O $var38 não foi instalado!" >> /home/$USER/.ListPack.txt
+		echo "xxx> O Stoq não foi instalado!" >> /home/$USER/.ListPack.txt
 	fi
 
 	# Testando se o BibleTime foi instalado
 	if [ -x /usr/bin/bibletime ]
 	then
-		echo "==> $var39 está instalado! --------------- `dpkg -s bibletime | grep ^V --color=never`" >> /home/$USER/.ListPack.txt
+		echo "==> BibleTime está instalado! --------------- `dpkg -s bibletime | grep ^V --color=never`" >> /home/$USER/.ListPack.txt
 	else
-		echo "xxx> A $var39 não foi instalado!" >> /home/$USER/.ListPack.txt
+		echo "xxx> A BibleTime não foi instalado!" >> /home/$USER/.ListPack.txt
 	fi
 
 	# Testando se o Xiphos foi instalado
 	if [ -x /usr/bin/xiphos ]
 	then
-		echo "==> $var40 está instalado! ------------------ `dpkg -s xiphos | grep ^V --color=never | cut -d+ -f1`" >> /home/$USER/.ListPack.txt
+		echo "==> Xiphos está instalado! ------------------ `dpkg -s xiphos | grep ^V --color=never | cut -d+ -f1`" >> /home/$USER/.ListPack.txt
 	else
-		echo "xxx> A $var40 não foi instalado!" >> /home/$USER/.ListPack.txt
+		echo "xxx> A Xiphos não foi instalado!" >> /home/$USER/.ListPack.txt
 	fi
 
 	if [ -x '/usr/bin/goldendict' ]
@@ -3078,7 +3124,7 @@ function VerificarPacotesAvancados(){
 	# Testando se o Code Blocks foi instalado
 	if [ -x '/usr/bin/codeblocks' ]
 	then
-		echo "==> Code Blocks está instalado!" >> /home/$USER/.ListPack.txt
+		echo "==> Code Blocks está instalado! ------------- `dpkg -s codeblocks | grep ^Version --color=never`" >> /home/$USER/.ListPack.txt
 	else
 		echo "xxx> O Code Blocks não foi instalado!" >> /home/$USER/.ListPack.txt			
 	fi
@@ -3086,7 +3132,7 @@ function VerificarPacotesAvancados(){
 	# Testando se o Geany foi instalado
 	if [ -x '/usr/bin/geany' ]
 	then
-		echo "==> Geany está instalado!" >> /home/$USER/.ListPack.txt
+		echo "==> Geany está instalado! ------------------- `dpkg -s geany | grep ^Version --color=never`" >> /home/$USER/.ListPack.txt
 	else
 		echo "xxx> O Geany não foi instalado!" >> /home/$USER/.ListPack.txt		
 	fi
@@ -3094,7 +3140,7 @@ function VerificarPacotesAvancados(){
 	# Testando se o Eclipse foi instalado
 	if [ -x '/usr/bin/eclise' ]
 	then
-		echo "==> Eclipse está instalado!" >> /home/$USER/.ListPack.txt
+		echo "==> Eclipse está instalado! ----------------- `dpkg -s eclipse | grep ^Version --color=never`" >> /home/$USER/.ListPack.txt
 	else
 		echo "xxx> O Eclipse não foi instalado!" >> /home/$USER/.ListPack.txt		
 	fi
@@ -3102,7 +3148,7 @@ function VerificarPacotesAvancados(){
 	# Testando se o Netbeans foi instalado
 	if [ -x '/usr/bin/netbeans' ]
 	then
-		echo "==> Netbeans está instalado!" >> /home/$USER/.ListPack.txt
+		echo "==> Netbeans está instalado! ---------------- `dpkg -s netbeans | grep ^Version --color=never`" >> /home/$USER/.ListPack.txt
 	else
 		echo "xxx> O Netbeans não foi instalado!" >> /home/$USER/.ListPack.txt		
 	fi
@@ -3110,7 +3156,7 @@ function VerificarPacotesAvancados(){
 	# Testando se o PHP foi instalado
 	if [ -x '/usr/bin/php' ]
 	then
-		echo "==> PHP está instalado!" >> /home/$USER/.ListPack.txt
+		echo "==> PHP está instalado! --------------------- `dpkg -s php | grep ^Version --color=never`" >> /home/$USER/.ListPack.txt
 	else
 		echo "xxx> O PHP não foi instalado!" >> /home/$USER/.ListPack.txt			
 	fi
@@ -3118,7 +3164,7 @@ function VerificarPacotesAvancados(){
 	# Testando se o Apache foi instalado
 	if [ -x '/usr/sbin/apache' ] || [ -x '/usr/sbin/apache2' ]
 	then
-		echo "==> Apache está instalado!" >> /home/$USER/.ListPack.txt
+		echo "==> Apache está instalado! ------------------ `dpkg -s apache | grep ^Version --color=never || dpkg -s apache2 | grep ^Version --color=never`" >> /home/$USER/.ListPack.txt
 	else
 		echo "xxx> O Apache não foi instalado!"	>> /home/$USER/.ListPack.txt		
 	fi
@@ -3126,7 +3172,7 @@ function VerificarPacotesAvancados(){
 	# Testando se o Git foi instalado
 	if [ -x '/usr/bin/git' ]
 	then
-		echo "==> Git está instalado!" >> /home/$USER/.ListPack.txt
+		echo "==> Git está instalado! --------------------- `dpkg -s git | grep ^Version --color=never`" >> /home/$USER/.ListPack.txt
 	else
 		echo "xxx> O Git não foi instalado!" >> /home/$USER/.ListPack.txt		
 	fi
@@ -3134,7 +3180,7 @@ function VerificarPacotesAvancados(){
 	# Testando se o Git-Cola foi instalado
 	if [ -x '/usr/bin/git-cola' ]
 	then
-		echo "==> Git-Cola está instalado!" >> /home/$USER/.ListPack.txt
+		echo "==> Git-Cola está instalado! ---------------- `dpkg -s git-cola | grep ^Version --color=never`" >> /home/$USER/.ListPack.txt
 	else
 		echo "xxx> O Git-Cola não foi instalado!" >> /home/$USER/.ListPack.txt		
 	fi
@@ -3142,7 +3188,7 @@ function VerificarPacotesAvancados(){
 	# Testando se o Git-Hub foi instalado
 	if [ -x '/usr/bin/git-hub' ]
 	then
-		echo "==> Git-Hub está instalado!" >> /home/$USER/.ListPack.txt
+		echo "==> Git-Hub está instalado! ----------------- `dpkg -s git-hub | grep ^Version --color=never`" >> /home/$USER/.ListPack.txt
 	else
 		echo "xxx> O Git-Hub não foi instalado!" >> /home/$USER/.ListPack.txt			
 	fi
@@ -3150,7 +3196,7 @@ function VerificarPacotesAvancados(){
 	# Testando se o GCC foi instalado
 	if [ -x '/usr/bin/gcc' ]
 	then
-		echo "==> GCC está instalado!" >> /home/$USER/.ListPack.txt
+		echo "==> GCC está instalado! --------------------- `dpkg -s gcc | grep ^Version --color=never`" >> /home/$USER/.ListPack.txt
 	else
 		echo "xxx> O GCC não foi instalado!" >> /home/$USER/.ListPack.txt		
 	fi
@@ -3158,7 +3204,7 @@ function VerificarPacotesAvancados(){
 	# Testando se o G++ foi instalado
 	if [ -x '/usr/bin/g++' ]
 	then
-		echo "==> G++ está instalado!" >> /home/$USER/.ListPack.txt
+		echo "==> G++ está instalado! --------------------- `dpkg -s g++ | grep ^Version --color=never`" >> /home/$USER/.ListPack.txt
 	else
 		echo "xxx> O G++ não foi instalado!" >> /home/$USER/.ListPack.txt		
 	fi		
@@ -3167,7 +3213,7 @@ function VerificarPacotesAvancados(){
 	# Testando se o Sublime-Text foi instalado
 	if [ -x '/opt/sublime_text/sublime_text' ]
 	then
-		echo "==> Sublime-Text está instalado!" >> /home/$USER/.ListPack.txt
+		echo "==> Sublime-Text está instalado! ------------ `dpkg -s sublime-text | grep ^Version --color=never`" >> /home/$USER/.ListPack.txt
 	else
 		echo "xxx> O Sublime-Text não foi instalado!" >> /home/$USER/.ListPack.txt		
 	fi		
@@ -3176,12 +3222,13 @@ function VerificarPacotesAvancados(){
 	# Testando se o Atom foi instalado
 	if [ -x '/usr/bin/atom' ]
 	then
-		echo "==> Atom está instalado!" >> /home/$USER/.ListPack.txt
+		echo "==> Atom está instalado! -------------------- `dpkg -s atom | grep ^Version --color=never`" >> /home/$USER/.ListPack.txt
 	else
 		echo "xxx> O Atom não foi instalado!" >> /home/$USER/.ListPack.txt
 	fi		
 	echo
 
+	clear
 	cat /home/$USER/.ListPack.txt | more
 }
 
@@ -3314,76 +3361,127 @@ function CorrigirDependencias(){
 } #Fim: Correção de Pacotes Quebrados ou Dependências
 
 
+#Início: Desinstalador de Pacotes
+function Desinstalar() {
+	until (( ))
+	do
+		clear
+		echo "               ************************************************************"
+		echo "               *                                                          *"
+		echo -e "               *\e[1m                Desinstalação de Pacotes                  \e[m*"
+		echo "               *                                                          *"
+		echo "               ************************************************************"
+		echo
+		echo
+		echo -e '\e[31;1mATENÇÃO!\e[m'
+		echo
+		echo "Você será o único responsável por quaisquer danos provinientes da desinstalação deste Pacote!"
+		echo "Execute esta ação com responsabilidade!"
+		echo
+		echo
+		echo "Você Deseja Continuar? "
+		echo -n "[Digite s/n]: "
+		read opcao
+		opcao=`printf $opcao | tr [a-z] [A-Z]`
+
+		case $opcao in
+			S)	
+				echo
+				echo
+				echo -n "Digite Corretamente o Nome do Pacote a Ser Desinstalado: "
+				read Pack
+				echo
+				echo
+				sudo apt-get remove $Pack -y && sudo apt-get autoremove -y
+			;;
+
+			N) _menu ;;
+			*) Desconhecida ;;
+		esac
+	done
+} #Fim: Desinstalador de Pacotes
+
+
 #Início: Informações Sobre o Script
 function InformacoesScript(){
+
 	clear
-	echo "************************************************************************"
-	echo "*                                                                      *"
-	echo "*                             INFORMAÇÕES                              *"
-	echo "*                                                                      *"
-	echo "************************************************************************"
-	echo
-	echo
-	echo "Este é um Script de Pós-Instalação de Distros Baseadas no 'Ubuntu'."
-	echo "Ele Possui a Função de Instalar e/ou Atualizar:"
-	echo
-	echo
-	echo "a) O Pacote Básicos:"
-	echo "********************"
-	echo "==> Tema Papirus e Tema Arc          ==> OBS-Studio"
-	echo "==> Monitor do Sistema               ==> Kazam"
-	echo "==> GParted                          ==> Kdenlive"
-	echo "==> Gnome-Disks                      ==> Gimp"
-	echo "==> Brasero                          ==> Inkscape"
-	echo "==> Audacity                         ==> ClipGrab"
-	echo "==> Parole                           ==> Spotify"
-	echo "==> VLC                              ==> Transmission"
-	echo "==> Curlew                           ==> Pacote de Fontes da Microsoft"
-	echo "==> Converseen"
-	echo "==> LibreOffice, Pacote de Tradução e Tema de Ícones"
-	echo
-	echo
-	echo "b) O Pacote Avançados:"
-	echo "**********************"
-	echo "==> Navegadores"
-	echo "==> DropBox                          ==> Blender"
-	echo "==> Multisystem                      ==> MultiBootUSB"
-	echo "==> VirtualBox                       ==> Synaptic"
-	echo "==> Steam                            ==> Stoq"
-	echo "==> PlayOnLinux                      ==> Wine"
-	echo "==> Dicionário GoldenDict            ==> Grub Customizer"
-	echo "==> BibleTime                        ==> Xiphos"
-	echo
-	echo
-	echo "c) O Pacote Development:"
-	echo "************************"
-	echo "==> CodeBlocks                       ==> Apache"
-	echo "==> Geany                            ==> PHP"
-	echo "==> NetBeans                         ==> Python"
-	echo "==> Eclipse                          ==> GCC e G++"
-	echo "==> WorkBench e MySQL                ==> Atom"
-	echo "==> Git, Git-Cola e GitHub           ==> Sublime-Text"
-	echo
-	echo
-	echo "d) Extras:"
-	echo "**********"
-	echo "==> Atualizar Todos os Pacotes Instalados;"
-	echo "==> Atualiza Todo o Sistema;"
-	echo "==> Verificar e Listar Pacotes Foram ou Não Instalados;"
-	echo "==> Corrigir Dependências e Pacotes Quebrados;"
-	echo "==> Realizar Limpeza do Sistema como: Cache do APT, Lixeira, Arquivos Temporários e Pacotes e Kernels Obsoletos;"
-	echo "==> Atualizar a Ordem e Alterações de Boot do Grub."
-	echo
-	echo
-	echo "Dicas para Facilitar a Utilização:"
-	echo "**********************************"
-	echo "Este simbolo '==>' significa que o pacote está instalado."
-	echo "Este simbolo 'xxx>' significa que não está instalado."
-	echo "Para facilitar a visualização deixe o terminal em 95x30 (95 colunas por 30 linhas)."
-	echo
-	echo
-	echo "Se houver dúvidas ou sugestões, contate-nos pelo E-mail: luciobrito2012@gmail.com"
-	echo "Assista também nossos vídeos no You Tube acessando o Canal Live Informática."
+
+	rm -Rf /home/$USER/.ListInfo.txt
+	touch /home/$USER/.ListInfo.txt
+
+	echo "           ************************************************************************" >> /home/$USER/.ListInfo.txt
+	echo "           *                                                                      *" >> /home/$USER/.ListInfo.txt
+	echo -e "           *\e[1m                       INFORMAÇÕES DO BRUTUS                          \e[m*" >> /home/$USER/.ListInfo.txt
+	echo "           *                                                                      *" >> /home/$USER/.ListInfo.txt
+	echo "           ************************************************************************" >> /home/$USER/.ListInfo.txt
+	echo "" >> /home/$USER/.ListInfo.txt
+	echo "" >> /home/$USER/.ListInfo.txt
+	echo "O Brutus é um Script de Pós-Instalação de Distros Baseadas no 'Ubuntu'." >> /home/$USER/.ListInfo.txt
+	echo "Ele Possui a Função de Instalar e/ou Atualizar:" >> /home/$USER/.ListInfo.txt
+	echo "" >> /home/$USER/.ListInfo.txt
+	echo "" >> /home/$USER/.ListInfo.txt
+	echo "a) O Pacote Básico:" >> /home/$USER/.ListInfo.txt
+	echo "*******************" >> /home/$USER/.ListInfo.txt
+	echo "==> Tema Papirus e Tema Arc          ==> OBS-Studio" >> /home/$USER/.ListInfo.txt
+	echo "==> Monitor do Sistema               ==> Kazam" >> /home/$USER/.ListInfo.txt
+	echo "==> GParted                          ==> Kdenlive" >> /home/$USER/.ListInfo.txt
+	echo "==> Gnome-Disks                      ==> Gimp" >> /home/$USER/.ListInfo.txt
+	echo "==> Brasero                          ==> Inkscape" >> /home/$USER/.ListInfo.txt
+	echo "==> Audacity                         ==> ClipGrab" >> /home/$USER/.ListInfo.txt
+	echo "==> Parole                           ==> Spotify" >> /home/$USER/.ListInfo.txt
+	echo "==> VLC                              ==> Transmission" >> /home/$USER/.ListInfo.txt
+	echo "==> Curlew                           ==> Pacote de Fontes da Microsoft" >> /home/$USER/.ListInfo.txt
+	echo "==> Converseen" >> /home/$USER/.ListInfo.txt
+	echo "==> LibreOffice, Pacote de Tradução e Tema de Ícones" >> /home/$USER/.ListInfo.txt
+	echo "" >> /home/$USER/.ListInfo.txt
+	echo "" >> /home/$USER/.ListInfo.txt
+	echo "b) O Pacote Avançado:" >> /home/$USER/.ListInfo.txt
+	echo "*********************" >> /home/$USER/.ListInfo.txt
+	echo "==> Navegadores" >> /home/$USER/.ListInfo.txt
+	echo "==> DropBox                          ==> Blender" >> /home/$USER/.ListInfo.txt
+	echo "==> Multisystem                      ==> MultiBootUSB" >> /home/$USER/.ListInfo.txt
+	echo "==> VirtualBox                       ==> Synaptic" >> /home/$USER/.ListInfo.txt
+	echo "==> Steam                            ==> Stoq" >> /home/$USER/.ListInfo.txt
+	echo "==> PlayOnLinux                      ==> Wine" >> /home/$USER/.ListInfo.txt
+	echo "==> Dicionário GoldenDict            ==> Grub Customizer" >> /home/$USER/.ListInfo.txt
+	echo "==> BibleTime                        ==> Xiphos" >> /home/$USER/.ListInfo.txt
+	echo "" >> /home/$USER/.ListInfo.txt
+	echo "" >> /home/$USER/.ListInfo.txt
+	echo "c) O Pacote Development:" >> /home/$USER/.ListInfo.txt
+	echo "************************" >> /home/$USER/.ListInfo.txt
+	echo "==> CodeBlocks                       ==> Apache" >> /home/$USER/.ListInfo.txt
+	echo "==> Geany                            ==> PHP" >> /home/$USER/.ListInfo.txt
+	echo "==> NetBeans                         ==> Python" >> /home/$USER/.ListInfo.txt
+	echo "==> Eclipse                          ==> GCC e G++" >> /home/$USER/.ListInfo.txt
+	echo "==> WorkBench e MySQL                ==> Atom" >> /home/$USER/.ListInfo.txt
+	echo "==> Git, Git-Cola e GitHub           ==> Sublime-Text" >> /home/$USER/.ListInfo.txt
+	echo "" >> /home/$USER/.ListInfo.txt
+	echo "" >> /home/$USER/.ListInfo.txt
+	echo "d) Extras:" >> /home/$USER/.ListInfo.txt
+	echo "**********" >> /home/$USER/.ListInfo.txt
+	echo "==> Atualizar Todos os Pacotes Instalados;" >> /home/$USER/.ListInfo.txt
+	echo "==> Atualiza Todo o Sistema;" >> /home/$USER/.ListInfo.txt
+	echo "==> Verificar e Listar Pacotes Foram ou Não Instalados;" >> /home/$USER/.ListInfo.txt
+	echo "==> Corrigir Dependências e Pacotes Quebrados;" >> /home/$USER/.ListInfo.txt
+	echo "==> Realizar Limpeza do Sistema como: Cache do APT, Lixeira, Arquivos Temporários e Pacotes e Kernels Obsoletos;" >> /home/$USER/.ListInfo.txt
+	echo "==> Atualizar a Ordem e Alterações de Boot do Grub." >> /home/$USER/.ListInfo.txt
+	echo "" >> /home/$USER/.ListInfo.txt
+	echo "" >> /home/$USER/.ListInfo.txt
+	echo "Dicas para Facilitar a Utilização:" >> /home/$USER/.ListInfo.txt
+	echo "**********************************" >> /home/$USER/.ListInfo.txt
+	echo "Este simbolo '==>' significa que o pacote está instalado." >> /home/$USER/.ListInfo.txt
+	echo "Este simbolo 'xxx>' significa que não está instalado." >> /home/$USER/.ListInfo.txt
+	echo "Para facilitar a visualização deixe o terminal em 95x30 (95 colunas por 30 linhas)." >> /home/$USER/.ListInfo.txt
+	echo "" >> /home/$USER/.ListInfo.txt
+	echo "" >> /home/$USER/.ListInfo.txt
+	echo "Se houver dúvidas ou sugestões, contate-nos pelo E-mail: luciobrito2012@gmail.com" >> /home/$USER/.ListInfo.txt
+	echo "Assista também nossos vídeos no You Tube acessando o Canal Live Informática." >> /home/$USER/.ListInfo.txt
+
+	clear
+	cat /home/$USER/.ListInfo.txt | more
+	rm -Rf /home/$USER/.ListInfo.txt
+
 	echo
 	echo
 	echo
