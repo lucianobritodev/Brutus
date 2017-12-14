@@ -2754,7 +2754,8 @@ function Teste2(){
 	[ -x '/usr/bin/stoq' ] &&
 	[ -x '/usr/bin/bibletime' ] &&
 	[ -x '/usr/bin/xiphos' ] &&
-	[ -x '/usr/bin/goldendict' ]
+	[ -x '/usr/bin/goldendict' ] &&
+	[ -x '/usr/local/bin/WhatsApp' ]
 	then
 		echo
 	  	echo -e "\e[32;1m==> Pacotes Avançados Estão Instalados!\e[m"
@@ -3114,6 +3115,14 @@ function VerificarPacotesAvancados(){
 	  	echo "xxx> O Dicionário GoldenDict não foi instalado!" >> /home/$USER/.ListPack.txt
 	fi
 
+	if [ -x '/usr/local/bin/WhatsApp' ]
+	then
+	  	echo -n "==> WhatsApp-Desktop está instalado! -------- " >> /home/$USER/.ListPack.txt
+	  	echo "`dpkg -s whatsapp-desktop | grep ^Version --color=never`" >> /home/$USER/.ListPack.txt
+	else
+	  	echo "xxx> O WhatsApp-Desktop não foi instalado!" >> /home/$USER/.ListPack.txt
+	fi
+
 	echo "" >> /home/$USER/.ListPack.txt
 
 	#Pacotes Development
@@ -3438,7 +3447,7 @@ function InformacoesScript(){
 	echo "" >> /home/$USER/.ListInfo.txt
 	echo "b) O Pacote Avançado:" >> /home/$USER/.ListInfo.txt
 	echo "*********************" >> /home/$USER/.ListInfo.txt
-	echo "==> Navegadores" >> /home/$USER/.ListInfo.txt
+	echo "==> Navegadores                      ==> WhatsApp-Desktop" >> /home/$USER/.ListInfo.txt
 	echo "==> DropBox                          ==> Blender" >> /home/$USER/.ListInfo.txt
 	echo "==> Multisystem                      ==> MultiBootUSB" >> /home/$USER/.ListInfo.txt
 	echo "==> VirtualBox                       ==> Synaptic" >> /home/$USER/.ListInfo.txt
