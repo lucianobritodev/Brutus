@@ -1,7 +1,7 @@
 Brutus
 ======
 
-Brutus é um Script de Pós Instalação de Distros Baseadas no Ubuntu.
+Brutus é um Script de Pós Instalação Multifunção de Distros Baseadas no Ubuntu.
 
 Suas Funções Principais São:
 
@@ -19,36 +19,59 @@ Suas Funções Principais São:
 
 # Pacotes Básicos:
 
-* Tema Papirus e Tema Arc          * OBS-Studio
-* Monitor do Sistema               * Kazam
-* GParted                          * Kdenlive
-* Gnome-Disks                      * Gimp
-* Brasero                          * Inkscape
-* Audacity                         * ClipGrab
-* Parole                           * Spotify
-* VLC                              * Transmission
-* Curlew                           * Pacote de Fontes da Microsoft
-* Converseen
+* Tema Papirus e Tema Arc          
+* Monitor do Sistema               
+* GParted                          
+* Gnome-Disks
 * LibreOffice, Pacote de Tradução e Tema de Ícones
+* Pacote de Fontes da Microsoft
+* Brasero                          
+* Audacity                         
+* Parole                           
+* VLC
+* ClipGrab
+* Spotify
+* Gimp
+* Inkscape
+* OBS-Studio
+* Kazam
+* Kdenlive
+* Curlew                           
+* Converseen
+* Transmission
 
 
 # Pacotes Avançados:
 
-==> Navegadores                      ==> WhatsApp-Desktop
-==> DropBox                          ==> Blender
-==> Multisystem                      ==> MultiBootUSB
-==> VirtualBox                       ==> Synaptic
-==> Steam                            ==> Stoq
-==> PlayOnLinux                      ==> Wine
-==> Dicionário GoldenDict            ==> Grub Customizer
-==> BibleTime                        ==> Xiphos
+* Navegadores                      
+* DropBox                          
+* Multisystem                      
+* MultiBootUSB
+* VirtualBox
+* Grub Customizer
+* Synaptic
+* Wine
+* Steam                            
+* PlayOnLinux                     
+* Blender
+* Stoq
+* Dicionário GoldenDict            
+* BibleTime
+* Xiphos
+* WhatsApp-Desktop
 
 
 # Pacotes Development:
 
-==> CodeBlocks                       ==> Apache
-==> Geany                            ==> PHP
-==> NetBeans                         ==> Python
-==> Eclipse                          ==> GCC e G++
-==> WorkBench e MySQL                ==> Atom
-==> Git, Git-Cola e GitHub           ==> Sublime-Text
+* CodeBlocks                       
+* Geany                            
+* NetBeans                         
+* Eclipse                          
+* WorkBench e MySQL
+* Apache
+* PHP
+* Python
+* Git, Git-Cola e GitHub           
+* GCC e G++
+* Sublime-Text
+* Atom
