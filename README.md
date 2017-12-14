@@ -1,7 +1,7 @@
 Brutus
 ======
 
-Brutus é um Script Multifunção e Pós para Distros Baseadas no Ubuntu.
+Brutus é um Script Multifunção e Pós-Instalação para Distros Baseadas no Ubuntu.
 
 Suas Funções Principais São:
 
