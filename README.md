@@ -7,29 +7,29 @@ Suas Funções Principais São:
 
 * Baixar, Instalar e Atualizar os Pacotes Básicos;
 * Baixar, Instalar e Atualizar os Pacotes Avançados;
-=> Baixar, Instalar e Atualizar os Pacotes Development;
-=> Atualizar Pacotes;
-=> Atualozar o Sistema;
-=> Realizar Checklist dos Pacotes;
-=> Realizar Limpeza do Sistema;
-=> Atualizar Ordem de Boot;
-=> Corrigir Falhas de Instalação e Dependências;
-=> Desinstalar Pacotes.
+* Baixar, Instalar e Atualizar os Pacotes Development;
+* Atualizar Pacotes;
+* Atualozar o Sistema;
+* Realizar Checklist dos Pacotes;
+* Realizar Limpeza do Sistema;
+* Atualizar Ordem de Boot;
+* Corrigir Falhas de Instalação e Dependências;
+* Desinstalar Pacotes.
 
 
 # Pacotes Básicos:
 
-==> Tema Papirus e Tema Arc          ==> OBS-Studio
-==> Monitor do Sistema               ==> Kazam
-==> GParted                          ==> Kdenlive
-==> Gnome-Disks                      ==> Gimp
-==> Brasero                          ==> Inkscape
-==> Audacity                         ==> ClipGrab
-==> Parole                           ==> Spotify
-==> VLC                              ==> Transmission
-==> Curlew                           ==> Pacote de Fontes da Microsoft
-==> Converseen
-==> LibreOffice, Pacote de Tradução e Tema de Ícones
+* Tema Papirus e Tema Arc          * OBS-Studio
+* Monitor do Sistema               * Kazam
+* GParted                          * Kdenlive
+* Gnome-Disks                      * Gimp
+* Brasero                          * Inkscape
+* Audacity                         * ClipGrab
+* Parole                           * Spotify
+* VLC                              * Transmission
+* Curlew                           * Pacote de Fontes da Microsoft
+* Converseen
+* LibreOffice, Pacote de Tradução e Tema de Ícones
 
 
 # Pacotes Avançados:
