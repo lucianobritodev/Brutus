@@ -1,4 +1,6 @@
-# Brutus
+Brutus
+======
+
 Brutus é um Script de Pós Instalação de Distros Baseadas no Ubuntu.
 
 Suas Funções Principais São:
