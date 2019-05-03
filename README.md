@@ -81,11 +81,12 @@ Brutus tem a função de atomatizar tarefas de instalação de pacotes, dos quai
 * Sublime-Text
 * Atom
 
+
 ## Contributors
 
 [Luciano Brito](https://github.com/LucianoAparecidoBritoGuedes/)
 
-Brasileiro, casado, nascido em 1992. Apaixonado por tecnologias e open source. Formado pela Universidade Paulista (UNIP) em 2019.
+Brasileiro, casado, nascido em 1991. Apaixonado por tecnologias e open source. Formado pela Universidade Paulista (UNIP) em 2019.
 
 
 ## Contacts
