@@ -20,9 +20,9 @@ Suas Funções Principais São:
 
 ## Function
 
-Brutus tem a função de atomatizar tarefas de instalação de pacotes, dos quais são eles:
+Brutus tem a função de automatizar tarefas de instalação de pacotes, dos quais são eles:
 
-#### Pacotes Básicos:
+#### - Pacotes Básicos:
 
 * Tema Papirus e Tema Arc          
 * Monitor do Sistema               
@@ -46,7 +46,7 @@ Brutus tem a função de atomatizar tarefas de instalação de pacotes, dos quai
 * Transmission
 
 
-#### Pacotes Avançados:
+#### - Pacotes Avançados:
 
 * Navegadores                      
 * DropBox                          
@@ -66,7 +66,7 @@ Brutus tem a função de atomatizar tarefas de instalação de pacotes, dos quai
 * WhatsApp-Desktop
 
 
-#### Pacotes Development:
+#### - Pacotes Development:
 
 * CodeBlocks                       
 * Geany                            
