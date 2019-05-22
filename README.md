@@ -11,7 +11,7 @@ Suas Funções Principais São:
 * Baixar, Instalar e Atualizar os Pacotes Avançados;
 * Baixar, Instalar e Atualizar os Pacotes Development;
 * Atualizar Pacotes;
-* Atualozar o Sistema;
+* Atualizar o Sistema;
 * Realizar Checklist dos Pacotes;
 * Realizar Limpeza do Sistema;
 * Atualizar Ordem de Boot;
